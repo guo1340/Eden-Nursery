@@ -10,27 +10,25 @@ export default function IntroAnimation({ onFinish }: { onFinish: () => void }) {
             for (let i = 0; i < 5; i++) {
                 await controls.start((index) =>
                     index === i
-                        ? { scaleY: [0, 1], transition: { duration: 0.6, ease: "easeOut" } }
+                        ? { scaleY: [0, 1], transition: { duration: 0.5, ease: "easeOut" } }
                         : {}
                 );
                 await new Promise((r) => setTimeout(r, 200));
             }
 
-            await new Promise((r) => setTimeout(r, 600));
-            await controls.start({ opacity: 0, transition: { duration: 1 } });
+            await new Promise((r) => setTimeout(r, 100));
+            await controls.start({ opacity: 0, transition: { duration: 0.3 } });
             onFinish();
         }
 
         runAnimation();
     }, [controls, onFinish]);
 
-    const treeImgs = [
-        "/trees/tree1.jpg",
-        "/trees/tree2.png",
-        "/trees/tree3.jpg",
-        "/trees/tree4.jpg",
-        "/trees/tree5.jpg",
-    ];
+    // const logoImg = [
+
+    //     "/logo/logoBlack.png",
+    //     "/logo/LogoClearColor.png",
+    // ]
 
     return (
         <motion.div
@@ -38,18 +36,26 @@ export default function IntroAnimation({ onFinish }: { onFinish: () => void }) {
             animate={controls}
             className="intro-screen"
         >
-            <div className="trees-container">
-                {treeImgs.map((src, i) => (
-                    <motion.img
-                        key={i}
-                        src={src}
-                        alt={`Tree ${i}`}
-                        custom={i}
-                        initial={{ scaleY: 0, transformOrigin: "bottom" }}
-                        animate={controls}
-                        className="tree-img"
-                    />
-                ))}
+            <div className="logo-stack">
+                <motion.img
+                    key={0}
+                    src={"/logo/logoBlack.png"}
+                    alt={`Logo ${0}`}
+                    custom={0}
+                    initial={{ scaleY: 0, transformOrigin: "bottom" }}
+                    animate={controls}
+                    className={`logo-img bottom-logo`}
+                />
+                <motion.img
+                    key={1}
+                    src={"/logo/LogoClearColor.png"}
+                    alt={`Logo ${1}`}
+                    custom={1}
+                    initial={{ scaleY: 0, transformOrigin: "bottom" }}
+                    animate={controls}
+                    className={`logo-img top-logo`}
+                    style={{ zIndex: 10 }}
+                />
             </div>
         </motion.div>
     );

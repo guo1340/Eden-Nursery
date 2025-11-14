@@ -1,0 +1,154 @@
+/* ------------------------------ */
+/*  FULLSCREEN BACKGROUND VIDEO   */
+/* ------------------------------ */
+.background-video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -3;
+    /* very bottom */
+    pointer-events: none;
+}
+
+.background-video-container video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+/* ------------------------------ */
+/*  BLACK OVERLAY (0.5 OPACITY)   */
+/* ------------------------------ */
+.background-video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* ------------------------------ */
+/*  FRAMER-MOTION FADE-IN IN CSS  */
+/* ------------------------------ */
+.home-fade {
+    opacity: 0;
+    animation: fadeInHome 1.2s ease-out forwards;
+}
+
+@keyframes fadeInHome {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ------------------------------ */
+/*  VIDEO FADE AT START & END     */
+/* ------------------------------ */
+
+.background-video-container video {
+    animation: videoFade 15.01s ease-in-out infinite;
+}
+
+@keyframes videoFade {
+    0% {
+        opacity: 0;
+    }
+
+    3% {
+        opacity: 1;
+    }
+
+    97% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* =============================== */
+/* DUAL VIDEO SEAMLESS LOOP LOGIC */
+/* =============================== */
+
+/* .background-video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -3;
+    pointer-events: none;
+}
+
+.background-video-container video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+} */
+
+/* --- VIDEO A: fades out near end --- */
+/* .videoA {
+    animation: crossfadeA 15s linear infinite;
+} */
+
+/* --- VIDEO B: fades in near end, fades out at start --- */
+/* .videoB {
+    animation: crossfadeB 15s linear infinite;
+}
+
+@keyframes crossfadeA {
+    0% {
+        opacity: 1;
+    }
+
+    45% {
+        opacity: 1;
+    }
+
+    55% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes crossfadeB {
+    0% {
+        opacity: 0;
+    }
+
+    45% {
+        opacity: 0;
+    }
+
+    55% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+} */

@@ -1,0 +1,120 @@
+/* ============================= */
+/* TEAM PAGE */
+/* ============================= */
+
+.team-page {
+    text-align: center;
+    overflow: hidden;
+}
+
+/* ============================= */
+/* SCROLL ROW */
+/* ============================= */
+
+.team-scroll {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    /* 🚫 no vertical scroll */
+    gap: 24px;
+    padding-bottom: 20px;
+    scroll-snap-type: x mandatory;
+    white-space: nowrap;
+    /* keep children in one row */
+}
+
+.team-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+/* ============================= */
+/* CARDS */
+/* ============================= */
+
+.team-card {
+    margin-top: 10px;
+    min-width: 260px;
+    max-width: 260px;
+    background: #f9f9f9;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    scroll-snap-align: start;
+    padding-bottom: 16px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease;
+    color: #333;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+}
+
+.team-card.open {
+    max-width: 520px;
+}
+
+/* ============================= */
+/* IMAGE */
+/* ============================= */
+
+.team-img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+}
+
+/* ============================= */
+/* BASIC INFO */
+/* ============================= */
+
+.team-info {
+    padding: 16px;
+}
+
+.team-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 6px;
+}
+
+.team-info p {
+    font-size: 0.95rem;
+    color: #777;
+}
+
+/* ============================= */
+/* BIO ON RIGHT */
+/* ============================= */
+
+.team-bio {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 260px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    border-left: 1px solid #eee;
+    box-sizing: border-box;
+    align-content: center;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    /* 🔥 FIX TEXT WRAPPING */
+    white-space: normal !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+
+.team-bio p {
+    line-height: 1.5;
+    font-size: 0.95rem;
+    color: #444;
+}
