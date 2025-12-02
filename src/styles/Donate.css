@@ -1,0 +1,21 @@
+.donate-section {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: black;
+    /* static black background */
+    overflow: hidden;
+}
+
+.donate-inner {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* vertical center */
+    align-items: center;
+    /* horizontal center */
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}

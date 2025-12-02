@@ -1,11 +1,15 @@
 import React, { useState } from "react";
-import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
 import IntroAnimation from "./IntroAnimation";
-import Navigation from "./components/Navigation";
-import Missions from "./pages/Missions";
-import OurTeam from "./pages/OurTeam";
-import Donate from "./pages/Donate";
+
+import Navigation from "./components/Navigation"; // <-- ADD THIS
+
+// Sections
+import HomeSection from "./sections/HomeSection";
+import MissionsSection from "./sections/MissionsSection";
+import TeamSection from "./sections/TeamSection";
+import DonateSection from "./sections/DonateSection";
+
+import "./index.css";
 
 export default function App() {
   const [showIntro, setShowIntro] = useState(true);
@@ -14,15 +18,23 @@ export default function App() {
 
   return (
     <>
-      <Navigation />
-      <main style={{ paddingTop: "80px" }}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/missions" element={<Missions />} />
-          <Route path="/team" element={<OurTeam />} />
-          <Route path="/donate" element={<Donate />} />
-        </Routes>
-      </main>
+      <Navigation />   {/* <-- FIXED NAV BAR */}
+
+      <section id="home" className="fullpage-section">
+        <HomeSection />
+      </section>
+
+      <section id="missions" className="fullpage-section">
+        <MissionsSection />
+      </section>
+
+      <section id="team" className="fullpage-section">
+        <TeamSection />
+      </section>
+
+      <section id="donate" className="fullpage-section">
+        <DonateSection />
+      </section>
     </>
   );
 }

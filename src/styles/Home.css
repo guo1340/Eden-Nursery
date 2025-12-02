@@ -2,38 +2,38 @@
 /*  FULLSCREEN BACKGROUND VIDEO   */
 /* ------------------------------ */
 .background-video-container {
-    position: fixed;
+    position: absolute;
+    /* anchor to section — NOT fixed */
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
     z-index: -3;
-    /* very bottom */
-    pointer-events: none;
 }
 
 .background-video-container video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    min-width: 100%;
-    min-height: 100%;
-    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
+
+.home-video video {
+    object-fit: cover;
+}
+
+
 
 /* ------------------------------ */
 /*  BLACK OVERLAY (0.5 OPACITY)   */
 /* ------------------------------ */
 .background-video-overlay {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.7);
+
     z-index: -2;
     pointer-events: none;
 }
@@ -59,7 +59,7 @@
 /* ------------------------------ */
 /*  VIDEO FADE AT START & END     */
 /* ------------------------------ */
-
+/* 
 .background-video-container video {
     animation: videoFade 15.01s ease-in-out infinite;
 }
@@ -80,17 +80,17 @@
     100% {
         opacity: 0;
     }
-}
+} */
 
 /* =============================== */
 /* DUAL VIDEO SEAMLESS LOOP LOGIC */
 /* =============================== */
 
-/* .background-video-container {
-    position: fixed;
+.background-video-container {
+    /* position: fixed; */
     top: 0;
     left: 0;
-    width: 100vw;
+    min-width: 100vw;
     height: 100vh;
     overflow: hidden;
     z-index: -3;
@@ -105,15 +105,15 @@
     min-height: 100%;
     transform: translate(-50%, -50%);
     object-fit: cover;
-} */
+}
 
 /* --- VIDEO A: fades out near end --- */
-/* .videoA {
+.videoA {
     animation: crossfadeA 15s linear infinite;
-} */
+}
 
 /* --- VIDEO B: fades in near end, fades out at start --- */
-/* .videoB {
+.videoB {
     animation: crossfadeB 15s linear infinite;
 }
 
@@ -151,4 +151,4 @@
     100% {
         opacity: 1;
     }
-} */
+}

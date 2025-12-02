@@ -1,34 +1,75 @@
-import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import "./Navigation.css";
 
 export default function Navigation() {
-    const location = useLocation();
     const [menuOpen, setMenuOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState("home");
 
-    const isActive = (path: string) => location.pathname === path;
     const toggleMenu = () => setMenuOpen(!menuOpen);
     const closeMenu = () => setMenuOpen(false);
 
+    const scrollToSection = (id: string) => {
+        closeMenu();
+        const section = document.getElementById(id);
+        if (section) section.scrollIntoView({ behavior: "smooth" });
+    };
+
+    // Detect which section is currently on screen
+    useEffect(() => {
+        const sections = document.querySelectorAll("section.fullpage-section");
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id);
+                    }
+                });
+            },
+            {
+                threshold: 0.6, // section is considered active when 60% visible
+            }
+        );
+
+        sections.forEach((sec) => observer.observe(sec));
+        return () => sections.forEach((sec) => observer.unobserve(sec));
+    }, []);
+
     return (
         <nav className="navigation">
-            {/* Desktop Links */}
-            <div className="nav-links">
-                <Link to="/" className={isActive("/") ? "active" : ""}>
+
+            {/* DESKTOP RIGHT-SIDE VERTICAL NAV */}
+            <div className="nav-vertical">
+                <button
+                    className={activeSection === "home" ? "active" : ""}
+                    onClick={() => scrollToSection("home")}
+                >
                     Home
-                </Link>
-                <Link to="/missions" className={isActive("/missions") ? "active" : ""}>
+                </button>
+
+                <button
+                    className={activeSection === "missions" ? "active" : ""}
+                    onClick={() => scrollToSection("missions")}
+                >
                     Missions
-                </Link>
-                <Link to="/team" className={isActive("/team") ? "active" : ""}>
+                </button>
+
+                <button
+                    className={activeSection === "team" ? "active" : ""}
+                    onClick={() => scrollToSection("team")}
+                >
                     Our Team
-                </Link>
-                <Link to="/donate" className={isActive("/donate") ? "active" : ""}>
+                </button>
+
+                <button
+                    className={activeSection === "donate" ? "active" : ""}
+                    onClick={() => scrollToSection("donate")}
+                >
                     Donate
-                </Link>
+                </button>
             </div>
 
-            {/* Hamburger Button */}
+            {/* MOBILE HAMBURGER */}
             <button
                 className={`hamburger ${menuOpen ? "open" : ""}`}
                 onClick={toggleMenu}
@@ -39,20 +80,12 @@ export default function Navigation() {
                 <span className="bar"></span>
             </button>
 
-            {/* Mobile Menu */}
+            {/* MOBILE MENU */}
             <div className={`mobile-menu ${menuOpen ? "active" : ""}`}>
-                <Link to="/" onClick={closeMenu} className={isActive("/") ? "active" : ""}>
-                    Home
-                </Link>
-                <Link to="/missions" onClick={closeMenu} className={isActive("/missions") ? "active" : ""}>
-                    Missions
-                </Link>
-                <Link to="/team" onClick={closeMenu} className={isActive("/team") ? "active" : ""}>
-                    Our Team
-                </Link>
-                <Link to="/donate" onClick={closeMenu} className={isActive("/donate") ? "active" : ""}>
-                    Donate
-                </Link>
+                <button onClick={() => scrollToSection("home")} className={activeSection === "home" ? "active" : ""}>Home</button>
+                <button onClick={() => scrollToSection("missions")} className={activeSection === "missions" ? "active" : ""}>Missions</button>
+                <button onClick={() => scrollToSection("team")} className={activeSection === "team" ? "active" : ""}>Our Team</button>
+                <button onClick={() => scrollToSection("donate")} className={activeSection === "donate" ? "active" : ""}>Donate</button>
             </div>
         </nav>
     );
