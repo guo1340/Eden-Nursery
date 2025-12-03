@@ -67,6 +67,13 @@ export default function Navigation() {
                 >
                     Donate
                 </button>
+
+                <button
+                    className={activeSection === "shop" ? "active" : ""}
+                    onClick={() => scrollToSection("shop")}
+                >
+                    Shop
+                </button>
             </div>
 
             {/* MOBILE HAMBURGER */}
@@ -86,6 +93,7 @@ export default function Navigation() {
                 <button onClick={() => scrollToSection("missions")} className={activeSection === "missions" ? "active" : ""}>Missions</button>
                 <button onClick={() => scrollToSection("team")} className={activeSection === "team" ? "active" : ""}>Our Team</button>
                 <button onClick={() => scrollToSection("donate")} className={activeSection === "donate" ? "active" : ""}>Donate</button>
+                <button onClick={() => scrollToSection("shop")} className={activeSection === "shop" ? "active" : ""}>Shop</button>
             </div>
         </nav>
     );

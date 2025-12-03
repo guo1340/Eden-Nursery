@@ -1,8 +1,8 @@
 import React from "react";
-import "../styles/Home.css";
+import "../styles/Shop.css";
 
 
-export default function HomeSection() {
+export default function ShopSection() {
     const scrollToSection = (id: string) => {
         const section = document.getElementById(id);
         if (section) section.scrollIntoView({ behavior: "smooth" });
@@ -13,7 +13,7 @@ export default function HomeSection() {
             {/* background video remains unchanged */}
             <div className="background-video-container home-video">
                 <video autoPlay loop muted playsInline>
-                    <source src="/videos/home-background.mp4" type="video/mp4" />
+                    {/* <source src="/videos/home-background.mp4" type="video/mp4" /> */}
                 </video>
             </div>
 
@@ -23,7 +23,7 @@ export default function HomeSection() {
 
                 <section className="text-center max-w-3xl bg-white/60 backdrop-blur-md p-8 rounded-xl shadow-lg">
                     <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight">
-                        Welcome to <span className="text-yellow-500">Eden Nursery</span>
+                        Welcome to <span className="text-yellow-500">Eden Nursery Shop Section</span>
                     </h1>
                     <p className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
                         This is a modern React + Framer Motion starter layout where your main content will live.
