@@ -1,0 +1,37 @@
+.seamless-video {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: -3;
+    /* keep your existing layering */
+}
+
+.seamless-video__vid {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    opacity: 0;
+    transition: opacity var(--fadeMs, 800ms) linear;
+    will-change: opacity;
+}
+
+/* Which one is currently visible */
+.seamless-video__vid.is-top {
+    opacity: 1;
+}
+
+.seamless-video__vid.is-bottom {
+    opacity: 0;
+}
+
+/* During crossfade */
+.seamless-video__vid.is-fading-out {
+    opacity: 0;
+}
+
+.seamless-video__vid.is-fading-in {
+    opacity: 1;
+}

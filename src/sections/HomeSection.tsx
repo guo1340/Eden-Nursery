@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/Home.css";
+import SeamlessLoopVideo from "../components/SeamlessLoopVideo.tsx";
 
 
 export default function HomeSection() {
@@ -12,9 +13,10 @@ export default function HomeSection() {
         <div className="section-content home-section">
             {/* background video remains unchanged */}
             <div className="background-video-container home-video">
-                <video autoPlay loop muted playsInline>
+                {/* <video autoPlay loop muted playsInline>
                     <source src="/videos/home-background.mp4" type="video/mp4" />
-                </video>
+                </video> */}
+                <SeamlessLoopVideo src="/videos/home-background.mp4" />
             </div>
 
             <div className="background-video-overlay"></div>

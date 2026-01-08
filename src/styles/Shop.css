@@ -1,0 +1,32 @@
+/* ============================= */
+/* SHOP BACKGROUND IMAGE */
+/* ============================= */
+
+/* Background image layer */
+.background-image-container {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.shop-bg {
+    background-image: url("/videos/Shop.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Dark overlay layer */
+.background-video-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.7);
+    pointer-events: none;
+}
+
+/* Ensure any foreground content wrapper sits above overlay */
+.home-fade {
+    position: relative;
+    z-index: 2;
+}

@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import "../styles/Missions.css";
+import SeamlessLoopVideo from "../components/SeamlessLoopVideo.tsx";
 
 export default function MissionsSection() {
     return (
@@ -8,11 +9,12 @@ export default function MissionsSection() {
 
             {/* Background video */}
             <div className="missions-video-container">
-                <video autoPlay loop muted playsInline>
+                {/* <video autoPlay loop muted playsInline>
                     <source src="/videos/Hahn.mp4" type="video/mp4" />
-                </video>
+                </video> */}
+                <SeamlessLoopVideo src="/videos/Hahn.mp4" />
             </div>
-            
+
 
             {/* DARK OVERLAY */}
             <div className="missions-overlay"></div>

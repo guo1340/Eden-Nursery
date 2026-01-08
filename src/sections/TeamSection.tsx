@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "../styles/Team.css";
+import SeamlessLoopVideo from "../components/SeamlessLoopVideo.tsx";
 
 const teamMembers = [
     {
@@ -62,9 +63,10 @@ export default function TeamSection() {
         <div className="team-section">
             {/* Background video */}
             <div className="team-video-container">
-                <video autoPlay loop muted playsInline>
+                {/* <video autoPlay loop muted playsInline>
                     <source src="/videos/Team.mp4" type="video/mp4" />
-                </video>
+                </video> */}
+                <SeamlessLoopVideo src="/videos/Team.mp4" />
             </div>
 
             {/* Overlay */}

@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import "../styles/Donate.css";
+import SeamlessLoopVideo from "../components/SeamlessLoopVideo.tsx";
 
 export default function DonateSection() {
     return (
@@ -8,9 +9,10 @@ export default function DonateSection() {
 
             {/* Background video */}
             <div className="donate-video-container">
-                <video autoPlay loop muted playsInline>
+                {/* <video autoPlay loop muted playsInline>
                     <source src="/videos/Donate.mp4" type="video/mp4" />
-                </video>
+                </video> */}
+                <SeamlessLoopVideo src="/videos/Donate.mp4" />
             </div>
 
             {/* Dark overlay */}
