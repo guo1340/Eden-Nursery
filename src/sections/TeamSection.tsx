@@ -32,11 +32,11 @@ const teamMembers = [
         bio: "Emily oversees media, visuals, and brand storytelling for the ministry.",
     },
 ];
+
 export default function TeamSection() {
     const [openId, setOpenId] = useState<number | null>(null);
     const scrollRef = useRef<HTMLDivElement | null>(null);
 
-    // FORCE vertical wheel → horizontal scroll
     useEffect(() => {
         const el = scrollRef.current;
         if (!el) return;
@@ -59,59 +59,71 @@ export default function TeamSection() {
     }, []);
 
     return (
-        <motion.div
-            className="team-page"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-        >
-            <h1 className="team-title">Meet Our Team</h1>
-            <p className="team-desc">
-                Our team is made up of passionate individuals who believe in growth,
-                faith, and collaboration. Together, we build and serve.
-            </p>
-
-            <div className="team-scroll" ref={scrollRef}>
-                <div className="scroll-spacer" />
-
-                {teamMembers.map((member) => {
-                    const isOpen = openId === member.id;
-
-                    return (
-                        <motion.div
-                            key={member.id}
-                            className={`team-card ${isOpen ? "open" : ""}`}
-                            onMouseEnter={() => setOpenId(member.id)}
-                            onMouseLeave={() => setOpenId(null)}
-                            layout
-                            transition={{ layout: { duration: 0.35, ease: "easeOut" } }}
-                        >
-                            <img src={member.image} alt={member.name} className="team-img" />
-                            <div className="team-info">
-                                <h3>{member.name}</h3>
-                                <p>{member.role}</p>
-                            </div>
-
-                            <AnimatePresence>
-                                {isOpen && (
-                                    <motion.div
-                                        className="team-bio"
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        exit={{ opacity: 0 }}
-                                        transition={{ duration: 0.3 }}
-                                    >
-                                        <p>{member.bio}</p>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </motion.div>
-                    );
-                })}
-
-                <div className="scroll-spacer" />
+        <div className="team-section">
+            {/* Background video */}
+            <div className="team-video-container">
+                <video autoPlay loop muted playsInline>
+                    <source src="/videos/Team.mp4" type="video/mp4" />
+                </video>
             </div>
 
-        </motion.div>
+            {/* Overlay */}
+            <div className="team-overlay" />
+
+            {/* Foreground */}
+            <motion.div
+                className="team-page"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8 }}
+            >
+                <h1 className="team-title">Meet Our Team</h1>
+                <p className="team-desc">
+                    Our team is made up of passionate individuals who believe in growth,
+                    faith, and collaboration. Together, we build and serve.
+                </p>
+
+                <div className="team-scroll" ref={scrollRef}>
+                    <div className="scroll-spacer" />
+
+                    {teamMembers.map((member) => {
+                        const isOpen = openId === member.id;
+
+                        return (
+                            <motion.div
+                                key={member.id}
+                                className={`team-card ${isOpen ? "open" : ""}`}
+                                onMouseEnter={() => setOpenId(member.id)}
+                                onMouseLeave={() => setOpenId(null)}
+                                layout
+                                transition={{ layout: { duration: 0.35, ease: "easeOut" } }}
+                            >
+                                <img src={member.image} alt={member.name} className="team-img" />
+                                <div className="team-info">
+                                    <h3>{member.name}</h3>
+                                    <p>{member.role}</p>
+                                </div>
+
+                                <AnimatePresence>
+                                    {isOpen && (
+                                        <motion.div
+                                            className="team-bio"
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            exit={{ opacity: 0 }}
+                                            transition={{ duration: 0.3 }}
+                                        >
+                                            <p>{member.bio}</p>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </motion.div>
+                        );
+                    })}
+
+                    <div className="scroll-spacer" />
+                </div>
+            </motion.div>
+        </div>
     );
 }

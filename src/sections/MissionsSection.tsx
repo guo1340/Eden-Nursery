@@ -12,6 +12,7 @@ export default function MissionsSection() {
                     <source src="/videos/Hahn.mp4" type="video/mp4" />
                 </video>
             </div>
+            
 
             {/* DARK OVERLAY */}
             <div className="missions-overlay"></div>
