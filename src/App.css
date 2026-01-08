@@ -122,3 +122,25 @@
   opacity: 1;
   /* keep fully opaque unless you want a fade */
 }
+
+/* ============================= */
+/* GLOBAL FIXED RIGHTS FOOTER */
+/* ============================= */
+
+.global-rights {
+  position: fixed;
+  bottom: 16px;
+  right: 20px;
+
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.85);
+
+  z-index: 9999;
+  /* higher than nav, videos, overlays */
+  pointer-events: none;
+  /* never blocks clicks */
+
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}

@@ -42,6 +42,10 @@ export default function App() {
           <ShopSection />
         </section>
       </div>
+
+      <div className="global-rights">
+        © {new Date().getFullYear()} Eden Nursery. All rights reserved.
+      </div>
     </>
   );
 }
