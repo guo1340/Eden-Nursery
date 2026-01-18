@@ -27,8 +27,7 @@ export default function DonateSection() {
             >
                 <h1 className="title">Support Our Mission</h1>
                 <p className="desc">
-                    Your donation helps us continue our outreach programs and build a
-                    stronger community. Every contribution counts.
+                    If you feel called to contribute to our mission, please send your contribution via Zelle, Venmo, or check.
                 </p>
                 <button className="donate-btn">
                     Donate Now

@@ -17,7 +17,7 @@ export default function MissionsSection() {
 
 
             {/* DARK OVERLAY */}
-            <div className="missions-overlay"></div>
+            <div className="background-video-overlay"></div>
 
             {/* FOREGROUND CONTENT */}
             <motion.div
@@ -26,10 +26,9 @@ export default function MissionsSection() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8 }}
             >
-                <h1 className="title">Our Mission</h1>
+                <h1 className="title">Business as an engine for positive impact</h1>
                 <p className="desc">
-                    We are dedicated to spreading hope and positive impact through our
-                    community initiatives. Join us in making a difference.
+                    When you support Eden Nursery, you aren't just getting a new landscape, plant, or plant product, you are fueling a mission. Our goal is to create a community of plants and people. Profits from Landscaping, dry goods, and merch are able to directly contribute to community engagement initiatives. Check out some of our previous community projects below.
                 </p>
             </motion.div>
         </div>
